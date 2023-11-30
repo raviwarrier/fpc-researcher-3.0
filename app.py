@@ -16,7 +16,7 @@ import autogen
 load_dotenv()
 brwoserless_api_key = os.getenv("BROWSERLESS_API_KEY")
 serper_api_key = os.getenv("SERP_API_KEY")
-airtable_api_key = os.getenv("AIRTABLE_API_KEY")
+#airtable_api_key = os.getenv("AIRTABLE_API_KEY")
 config_list = config_list_from_json("OAI_CONFIG_LIST")
 
 
@@ -100,8 +100,8 @@ def web_scraping(objective: str, url: str):
     else:
         print(f"HTTP request failed with status code {response.status_code}")        
 
-
-# Function for get airtable records
+'''
+/*# Function for get airtable records
 def get_airtable_records(base_id, table_id):
     url = f"https://api.airtable.com/v0/{base_id}/{table_id}"
 
@@ -135,7 +135,7 @@ def update_single_airtable_record(base_id, table_id, id, fields):
     response = requests.patch(url, headers=headers, data=json.dumps(data))
     data = response.json()
     return data
-
+'''
 
 # ------------------ Create agent ------------------ #
 
@@ -151,7 +151,7 @@ researcher = GPTAssistantAgent(
     name = "researcher",
     llm_config = {
         "config_list": config_list,
-        "assistant_id": "asst_qyvioid5My8K3SdFClaEnwmB"
+        "assistant_id": "" # insert your ID here
     }
 )
 
@@ -167,7 +167,7 @@ research_manager = GPTAssistantAgent(
     name="research_manager",
     llm_config = {
         "config_list": config_list,
-        "assistant_id": "asst_C1Ta5XmmEcYD6vnOSVflnwG9"
+        "assistant_id": "" # insert your ID here
     }
 )
 
@@ -177,7 +177,7 @@ director = GPTAssistantAgent(
     name = "director",
     llm_config = {
         "config_list": config_list,
-        "assistant_id": "asst_zVBJGch5mOyCYl9H1J3L9Ime",
+        "assistant_id": "", # insert your ID here
     }
 )
 
